@@ -275,7 +275,7 @@ class User_Dashboard_Shortcode {
 
         ob_start();
         ?>
-        <div class="dashboard-column course-access-column">
+        <div class="course-access-section">
             <div class="column-header">
                 <h3>מצב גישה לקורסים</h3>
             </div>
@@ -401,6 +401,9 @@ class User_Dashboard_Shortcode {
         ob_start();
         ?>
         <div class="user-dashboard-container">
+            <!-- Course Access Status - Full Width Section -->
+            <?php echo $this->render_course_access_status($access_info); ?>
+            
             <div class="dashboard-content">
                 <!-- Left Column - User Panel -->
                 <div class="dashboard-column user-panel">
@@ -457,9 +460,6 @@ class User_Dashboard_Shortcode {
                         <?php endif; ?>
                     </div>
                 </div>
-
-                <!-- Course Access Status -->
-                <?php echo $this->render_course_access_status($access_info); ?>
 
                 <!-- Middle Column - Practice Tests -->
                 <?php if ($atts['show_practice'] === 'true' || $atts['show_real_test'] === 'true' || $atts['show_teacher_quizzes'] === 'true') : ?>
